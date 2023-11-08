@@ -1,0 +1,66 @@
+\documentclass{common/settings}
+
+% PDF-Metadata
+\hypersetup{
+    pdftitle    = {Titel},
+    pdfsubject  = {Subject},
+    pdfauthor   = {Author},
+    pdfkeywords = {Keyword 1, Keyword 2, Keyword 3} ,
+    pdfcreator  = {},
+    pdfproducer = {}
+}
+
+%General stuff
+\graphicspath{{images/}}
+\addbibresource{quellen.bib}
+\begin{document}
+
+%Title page
+\input{common/titlePage.tex}
+\newpage
+
+%Page numbers
+\pagenumbering{roman}
+\setcounter{page}{0}
+
+%lists
+\contentstable{}
+\newpage
+\figureslist{}
+\newpage
+\tablelist{}
+\newpage
+\acronymslist{}
+\newpage
+
+%Page numbers
+\pagenumbering{arabic}
+\newpage
+\setcounter{page}{1}
+\setcounter{figure}{0}
+
+%Sectionen hinzufügen
+\foreach \i in {00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, ...,99} {%
+    \newpage
+    \edef\FileName{sections/file\i}
+    \IfFileExists{\FileName}{
+       \input{\FileName}
+    }
+}
+
+%Page numbers
+\pagenumbering{roman}
+\setcounter{page}{4}
+
+%Appendices
+\newpage
+\input{appendices}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\newpage
+\clearpage
+\bibliographylist{}
+
+\end{document}

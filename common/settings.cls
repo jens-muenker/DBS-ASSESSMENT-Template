@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dokumentenklasse für Transferleistungen
-% erstellt am 01.12.2022
+% Documentclass for the DBS
+% Created by Jens Muenker at 07.11.2023
 % Version: v1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ProvidesClass{common/nak}[2022/12/01 v1, by Jens Muenker]
+\ProvidesClass{common/settings}[2023/11/07 v1, by Jens Muenker]
 
 \newif\iflnienglish\lnienglishfalse
 \DeclareOption{english}{\lnienglishtrue}
@@ -12,27 +12,27 @@
 \ProcessOptions
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Seiteneinstellungen
+% Pagesettings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \LoadClass[a4paper,oneside,12pt, enabledeprecatedfontcommands, bibliography=totocnumbered]{scrartcl} % Schriftgröße 12pt
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc} % Times Schrift
+\RequirePackage[T1]{fontenc} % Times font
 
-\RequirePackage{textalpha} % Griechische Schriftzeichen
-\RequirePackage{lmodern} % Gerenderte Schrift
-\RequirePackage{eurosym} % Euro Symbol
+\RequirePackage{textalpha}
+\RequirePackage{lmodern}
+\RequirePackage{eurosym} % Euro symbol
 
 \RequirePackage{setspace}
-\setstretch{1.25} %Zeilenabstrand 1.25
+\setstretch{1.25} % Line spacing
 
-\RequirePackage[margin=2cm, includefoot, heightrounded]{geometry} % Seitenrand 2cm
+\RequirePackage[margin=2cm, includefoot, heightrounded]{geometry} % Page margins
 \RequirePackage{microtype}
 
-\RequirePackage[table]{xcolor} % Farben in Tabellen
+\RequirePackage[table]{xcolor} % colors in tables
 
-% Sprache einstellen (Schriftzeichen)
-\RequirePackage[english,ngerman,german]{babel}
+% Language settings
+\RequirePackage[english]{babel}
 \iflnienglish\selectlanguage{english}\def\bbl@main@language{english}\fi
 
 \usepackage{amsmath}
@@ -44,11 +44,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Zitieren mit biber & biblatex
+% Citation with biber & biblatex
 \usepackage{csquotes, url}
-\usepackage[backend=biber,citestyle=verbose-ibid,urldate=short,style=apa]{biblatex} % APA-Zitierstil
+\usepackage[backend=biber,citestyle=verbose-ibid,urldate=short,style=authoryear]{biblatex} % APA-Zitierstil
 
-% Webeseiten-Url-Config
 \PassOptionsToPackage{hyphens}{url}
 \RequirePackage[hyperfootnotes=false]{hyperref}
 
@@ -56,76 +55,75 @@
 \RequirePackage{tikz}
 \usetikzlibrary{fadings}
 
-% Für Matheformeln etc.
+% Math
 \RequirePackage{mathptmx}
 
-%Graphicx
+% Graphicx
 \RequirePackage{graphicx}
 
-% Bildunterschriften
+% Figures with captions and subcaptions
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 
-% Listen
+% listings
 \RequirePackage{listings}
 
-% Für Farben
+% Colors
 \RequirePackage{color}
 
-% Mehrfach Footnote
+% multiple footnotes
 \RequirePackage[symbol]{footmisc}
 
-% Auf Kapitel im Text verweisen
+% reference sections
 \usepackage{cleveref}
 
-% Abkürzungen
+% Acronyms
 \RequirePackage{acronym}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tabelleneinstellungen
+% Table settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage{array} % m und b tabellenausrichtungen
-\RequirePackage{longtable} % Tabellen über mehrere Spalten
-\RequirePackage{booktabs} % Bessere Tabellen
-\RequirePackage{multirow} % Tabellen mit multirow Zellen
-\renewcommand{\arraystretch}{1.5} % Tabellen: Zeilenabstand
-\setlength{\tabcolsep}{12pt} % Tabellen: Spaltenabstand
-\usepackage{threeparttable} % Für Tabellen mit Fußnoten
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{12pt}
+\usepackage{threeparttable} % footnotes in tables
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Figuren im Text
 \RequirePackage{wrapfig}
 
-% PDFs im Text verwenden/importieren können
+% PDF-Import
 \RequirePackage{pdfpages}
 \RequirePackage[export]{adjustbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Nordakademie Header für die Seiten
+% DBS Header
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{fancyhdr}
-\addtolength{\headheight}{0.9cm} % Headerhöhe
+\addtolength{\headheight}{1.3cm}
 \pagestyle{fancyplain}
-\fancyhead[R]{\includegraphics[height=0.8cm]{images/Nordakademie_Logo.png}} % Logo rechts
-\fancyhead[L]{\includegraphics[height=0.9cm]{images/transferleistung.png}} % Logo links
+\fancyhead[R]{\includegraphics[height=1.2cm]{images/dbs-logo.png}}
+\fancyhead[L]{\itshape Module - Assessment 1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[all]{nowidow} % Keine Waisen (einsame Zeile eines Absatzes auf der nächsten Seite)
+\RequirePackage[all]{nowidow}
 
 % Pagestyles
 \RequirePackage{floatpag}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hilfreiche Befehle
+% Helpfull commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\needCite}[1][]{
     \@latex@warning{Still require cite: #1! Needs to be done}
-    \colorbox{yellow}{\textcolor{red}{Zitat Notwendig #1}}
+    \colorbox{yellow}{\textcolor{red}{Require cite #1}}
 }
 
 \newcommand{\todo}[1]{
@@ -140,21 +138,20 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Verbesserte Fussnote
 \renewcommand\@makefntext[1]{\leftskip=0.5em\hskip-0.45em\@makefnmark#1}
 
 \RequirePackage{float}
 
-% Auskommentieren von LaTex-Elementen und längeren Text-Blöcken
+% outcomments
 \usepackage{verbatim} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Programmcode verwenden
+% Using Code Snippets
 %
-% WICHTIG:
+% IMPORTANT:
 %
-% Python 3 & das Python-Package
-% python-pygments muss installiert sein!!
+% Python 3 and the Python package
+% python-pygments must be installed!!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\RequirePackage{minted}
 
@@ -230,59 +227,55 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Verzeichniseinstellungen
+% Listings settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*{\listingautorefname}{\listingscaption}
 
-% Inhaltsverzeichnis
-\newcommand{\inhaltsverzeichnis}{
+\addto\captionsenglish{
+  \renewcommand{\contentsname}
+    {Table of Contents}
+}
+
+% Table of Contents
+\newcommand{\contentstable}{
 	\newpage
 	\hypertarget{toc}
 	\phantomsection
 	\tableofcontents
 }
 
-% Abbildungsverzeichnis
-\newcommand{\abbildungsverzeichnis}{
+% List of Figures
+\newcommand{\figureslist}{
 	\newpage
 	\phantomsection
-	\addcontentsline{toc}{section}{\footnotesize{Abbildungsverzeichnis}}
+	\addcontentsline{toc}{section}{\footnotesize{List of Figures}}
 	\listoffigures
 }
 
-% Tabellenverzeichnis
-\newcommand{\tabellenverzeichnis}{
+% List of Tables
+\newcommand{\tablelist}{
 	\phantomsection
-	\addcontentsline{toc}{section}{\footnotesize{Tabellenverzeichnis}}
+	\addcontentsline{toc}{section}{\footnotesize{List of Tables}}
 	\listoftables
 }
 
-% Abkürzungsverzeichnis
-\newcommand{\abkuerzungsverzeichnis}{
+% List of Abbreviations
+\newcommand{\acronymslist}{
 	\phantomsection
-	\section*{Abkürzungsverzeichnis}
-	\addcontentsline{toc}{section}{\footnotesize{Abkürzungsverzeichnis}}
+	\section*{List of Abbreviations}
+	\addcontentsline{toc}{section}{\footnotesize{List of Abbreviations}}
 	\begin{center}
-		\input{abkuerzungen.tex}
+		\input{acronyms.tex}
 	\end{center}
 }
 
-% Quellcodeverzeichnis
-%\newcommand{\listingverzeichnis}{
-%	\phantomsection
-%	\addcontentsline{toc}{section}{\footnotesize{Quellcodeverzeichnis}}
-%	\listoflistings
-%}
-%\renewcommand\listingscaption{Quellcodeverzeichnis}
-%\renewcommand\listoflistingscaption{Quellcodeverzeichnis}
-
-% Quellenverzeichnis
-\newcommand{\quellenverzeichnis}{
+% Bibliography
+\newcommand{\bibliographylist}{
 	\newpage	
 	\phantomsection
-    \section*{Quellenverzeichnis}
-	\addcontentsline{toc}{section}{\footnotesize{Quellenverzeichnis}}
+    \section*{List of References}
+	\addcontentsline{toc}{section}{\footnotesize{List of References}}
 	\printbibliography[heading=none]
 }
 

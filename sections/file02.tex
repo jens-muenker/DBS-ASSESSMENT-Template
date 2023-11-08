@@ -1,17 +1,12 @@
-\section{Usefull Stuff}
 
-\subsection{Befehle}
-\begin{itemize}
-    \item \anf{anf\{der Text\}} Anführungszeichen vorne und hinten mit Leerzeichen
-    \item \anf{anfo\{der Text\}} Anführungszeichen vorne und hinten ohne Leerzeichen
-    \item \needCite[\anf{\textbackslash needCite[optionaler Text]}] Usefull wenn noch ein Zitat benötigt wird
-    \begin{itemize} 
-        \item Es wird für diese Stelle eine Warnung generiert, damit die Transferleistung nicht aus versehen so abgegeben wird
-    \end{itemize}
-    \item \todo{\anf{\textbackslash todo\{Text\}}} Usefull wenn noch ein Todo offen ist
-    \begin{itemize} 
-        \item Es wird für diese Stelle eine Warnung generiert, damit die Transferleistung nicht aus versehen so abgegeben wird
-    \end{itemize}
-    \item \anf{\textbackslash cite\{Zitat\}} wird benutzt um zu zitieren. Zitate werden unter quellen.bib abgelegt (\cite{OOPOverview})
-    \item \anf{\textbackslash fullref\{Referenz\}} wird benutzt, um eine Referenz komplett darzustellen. Referenz Codebeispiel \fullref{code:sessionFactory}
-\end{itemize}
+\section{Images}
+
+\subsection{Overview}
+Images can be used to insert graphs or similar visual content.
+\begin{center}
+\captionsetup{type=figure}
+\includegraphics[width=0.8\textwidth]{pepe-the-frog-goes-classic-13.jpg}
+\captionof{figure}{Pepe at his best. Circa 2019 (\cite{rarepepe})}
+\label{testresults}
+\end{center}
+These images can also be referenced in the following text. For example, in \autoref{testresults}, you can see a fantastic image of Pepe.
